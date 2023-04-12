@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Light from "../Light";
 
-export default function Lights({ rooms }) {
+export default function Lights({ rooms, handleToggle }) {
   console.log(rooms);
 
   return (
@@ -10,8 +10,8 @@ export default function Lights({ rooms }) {
         <li key={room.id}>
           <Light
             name={room.name}
-            // isOn={room.isOn}
-            // onToggle={() => handleToggle(room.id)}
+            isOn={room.isOn}
+            onToggle={() => handleToggle(room.id)}
           />
         </li>
       ))}

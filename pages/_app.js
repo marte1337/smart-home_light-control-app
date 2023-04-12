@@ -16,10 +16,42 @@ const initialArray = [
 export default function App({ Component, pageProps }) {
   const [rooms, setRooms] = useState(initialArray);
 
+  function handleToggle(id) {
+    setRooms(
+      rooms.map((room) =>
+        room.id === id ? { ...room, isOn: !room.isOn } : room
+      )
+    );
+  }
+
+  function handleAllOff() {
+    setRooms(rooms.map((room) => ({ ...room, isOn: false })));
+  }
+
+  function handleAllOn() {
+    setRooms(rooms.map((room) => ({ ...room, isOn: true })));
+  }
+
+  function checkAllOn() {
+    return rooms.every((room) => room.isOn);
+  }
+
+  function checkAllOff() {
+    return rooms.every((room) => !room.isOn);
+  }
+
   return (
-    <Layout>
+    <Layout isDimmed={checkAllOff()}>
       <GlobalStyle />
-      <Component {...pageProps} rooms={rooms} />
+      <Component
+        {...pageProps}
+        rooms={rooms}
+        handleToggle={handleToggle}
+        handleAllOn={handleAllOn}
+        handleAllOff={handleAllOff}
+        checkAllOff={checkAllOff}
+        checkAllOn={checkAllOn}
+      />
     </Layout>
   );
 }

@@ -10,13 +10,13 @@ const Background = styled.div`
   inset: 0;
   background-color: black;
   z-index: -1;
-  filter: ${({ isDimmed }) => (isDimmed ? "brightness(70%)" : "none")};
+  filter: ${({ isDimmed }) => (isDimmed ? "brightness(30%)" : "none")};
   transition: filter 1.2s;
 `;
 
 const StyledImage = styled(Image)`
   object-fit: cover;
-  opacity: 0.3;
+  opacity: 0.7;
   user-select: none;
 `;
 
