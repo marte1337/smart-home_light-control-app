@@ -2,18 +2,6 @@
 
 In this challenge you will automate the lights in your house… well, at least in your browser.
 
-## Task
-
-- Start the development server and make yourself familiar with the application.
-- Notice that the lights are working as expected but the count of turned on lights on the home page (`/`) is not and the buttons on the `/actions` page are not working.
-
-### Lifting State Up
-
-- The count of turned on lights on the home page (`/`) is not working because the state is not shared between the components.
-- To make the state of the `Light` components available to the `HomePage` component (`pages/index.js`), you need to lift the state up to the `App` component (`pages/_app.js`).
-- In doing so, you will need to find a new way to represent the state of the lights. You can use an array of objects with a `name`, `isOn` and `id` property.
-- Change `Light` component to receive at least `isOn`, `name`, `onToggle` as props and remove the internal state from the component.
-- Change the `Lights` component to render the lights dynamically based on the array in state (`.map`). You'll need to pass the array down through props.
 - Create a function to toggle the `isOn` property of a light based on its `id` and pass the handler function down to the `Light` components.
 - In the `Lights` component pass down the `onToggle` prop to the `Light` component using an inline function to pass in the `id` of the light:
 

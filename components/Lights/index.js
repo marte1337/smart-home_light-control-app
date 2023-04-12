@@ -1,6 +1,24 @@
 import styled from "styled-components";
 import Light from "../Light";
 
+export default function Lights({ rooms }) {
+  console.log(rooms);
+
+  return (
+    <StyledLights>
+      {rooms.map((room) => (
+        <li key={room.id}>
+          <Light
+            name={room.name}
+            // isOn={room.isOn}
+            // onToggle={() => handleToggle(room.id)}
+          />
+        </li>
+      ))}
+    </StyledLights>
+  );
+}
+
 const StyledLights = styled.ul`
   list-style-type: none;
   display: flex;
@@ -10,34 +28,3 @@ const StyledLights = styled.ul`
   margin: 0;
   justify-content: center;
 `;
-
-export default function Lights() {
-  return (
-    <StyledLights>
-      <li>
-        <Light name="Living Room" />
-      </li>
-      <li>
-        <Light name="Kitchen" />
-      </li>
-      <li>
-        <Light name="Bedroom" />
-      </li>
-      <li>
-        <Light name="Bathroom" />
-      </li>
-      <li>
-        <Light name="Garage" />
-      </li>
-      <li>
-        <Light name="Porch" />
-      </li>
-      <li>
-        <Light name="Garden" />
-      </li>
-      <li>
-        <Light name="Office" />
-      </li>
-    </StyledLights>
-  );
-}
